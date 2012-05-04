@@ -1,0 +1,7 @@
+Notice how the parallel algorithm takes a shorter time to complete
+(the difference is about half a minute, or about 10%)
+but uses a lot more CPU time.
+
+
+The GSL library uses a different algorithm, and may be
+better cache-optimized.
