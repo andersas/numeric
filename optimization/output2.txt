@@ -1,0 +1,36 @@
+- - - - - - - - - - - - - -
+           Start           
+- - - - - - - - - - - - - -
+Finding minimum of banana function...
+Downhill simplex finished after 51 iterations.
+banana(1.000000, 1.000000) = 0.000000.
+Finding minimum of Himmelblau function with starting a simplex that's a square centered on 0...
+Downhill simplex finished after 67 iterations.
+Himmelblau(3.024069, 2.098405) = 0.241889.
+(there are several, but the function rises extremely fast away from them)
+Seeing what happens with the mexican hat potential function...
+Downhill simplex finished after 44 iterations.
+sombrero(2.088089, -0.799926) = -25.000000.
+x^2+y^2 = 5.000000, should be 5.
+Behold! Broken symmetry!
+
+- - - - - - - - - - - - - -
+Switching to Newtons method..
+- - - - - - - - - - - - - -
+
+Solving (1-x)=0, 10(y-x²)=0...
+x = 1.000000, y = 1.000000 solves the system (after 3 iterations).
+Calculating the square root of 101 by solving
+x^2 - 101 = 0
+sqrt(101) = 10.049876 (in fact 10.049876) after 7 iterations.
+
+I wonder how GPS works...
+Consider 3 spheres given by centrum and radius:
+(5,0,0), radius 5,
+(0,0,0), radius 3,
+(1,-2,-4), radius 5.
+Finding intersection by solving the system
+(x-5)^2 + y^2 + z^2 - 5^2 = 0,
+x^2 + y^2 + z^2 - 3^2 = 0,
+(x-1)^2 + (y+2)^2 + (z+4)^2 - 5^2 = 0...
+Intersection at (0.900000, 2.379606, -1.589803) found after 10 iterations.
