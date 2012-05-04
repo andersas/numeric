@@ -1,0 +1,10 @@
+Example 1 done with rk1 took 266 calls.
+Example 1 done with rk4 took 1309 calls.
+Example 2 done with rk1 took 143578 calls.
+Example 2 done with rk4 took 157377 calls.
+Example 3 done with rk1 took 198 calls.
+Example 3 done with rk4 took 550 calls.
+Example 4 done with rk1 took 3540 calls.
+Example 4 done with rk4 took 4741 calls.
+Example 5 done with rk1 took 624862 calls.
+Example 5 done with rk4 took 1338392 calls.

@@ -1,0 +1,32 @@
+
+set term png
+unset key
+
+set output 'example1-rk1.png'
+plot 'example-1-rk1.dat'
+set output 'example1-rk4.png'
+plot 'example-1-rk4.dat'
+
+set pointsize 0.1
+set output 'example2-rk1.png'
+splot 'example-2-rk1.dat' using 2:3:4
+set output 'example2-rk4.png'
+splot 'example-2-rk4.dat' using 2:3:4
+
+set pointsize 1.0
+set output 'example3-rk1.png'
+plot 'example-3-rk1.dat'
+set output 'example3-rk4.png'
+plot 'example-3-rk4.dat'
+
+set output 'example4-rk1.png'
+plot 'example-4-rk1.dat'
+set output 'example4-rk4.png'
+plot 'example-4-rk4.dat'
+
+set pointsize 0.1
+set output 'example5-rk1.png'
+plot 'example-5-rk1.dat'
+set output 'example5-rk4.png'
+plot 'example-5-rk4.dat'
+
