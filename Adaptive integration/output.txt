@@ -1,0 +1,22 @@
+Integrating log(x)/sqrt(x) from 0 to 1...
+Maximum recursion depth: 1073 calls.
+Number of calls: 10703.
+Result: -3.999994, error: 0.000737
+
+Integrating 4sqrt(1-(1-x)^2) from 0 to 1...
+Maximum recursion depth: 35 calls.
+Number of calls: 55087.
+M_PI =  3.1415926535897931159979635
+pi   =  3.1415926535897932384626433832795028841971693993751058209749445923078164
+Result: 3.14159265358979312,
+error:  0.00000000000486112
+
+Integrating step function from -1 to 1...
+Maximum recursion depth: 1 calls.
+Number of calls: 1.
+Result: 1.000000, error: 0.000000
+
+Integrating weird function from -10 to 10...
+Maximum recursion depth: 8 calls.
+Number of calls: 149.
+Result: 63.473596, error: 0.007669
