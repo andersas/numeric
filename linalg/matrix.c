@@ -378,6 +378,10 @@ matrix *matrix_row_from_array(size_t len, const double v[]) {
 matrix *matrix_copy(matrix * mat) {
 	return matrix_copy_preallocated(matrix_create(mat->n, mat->m), mat);
 }
+matrix *matrix_clone(matrix * mat) {
+	return matrix_copy(mat);
+}
+
 matrix *matrix_copy_preallocated(matrix *dest, matrix *src) {
 	size_t i;
 	if (dest->n != src->n || dest->m != src->m) {
@@ -389,6 +393,9 @@ matrix *matrix_copy_preallocated(matrix *dest, matrix *src) {
 		memcpy(dest->a[i], src->a[i], src->m*sizeof(double));
 
 	return dest;
+}
+matrix *matrix_clone_preallocated(matrix *dest, matrix *src) {
+	return matrix_copy_preallocated(dest, src);
 }
 
 matrix *matrix_store(matrix *mat, char *filename) {
