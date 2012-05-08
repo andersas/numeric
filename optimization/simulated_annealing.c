@@ -5,41 +5,49 @@
 #include <math.h>
 
 
-matrix * get_initial_point(size_t dim, matrix *lower, matrix *higher, gsl_rng *rng) {
+// Writes initial point to *initial
+void get_initial_point(size_t dim, double *initial, const double lower[], const double higher[], gsl_rng *rng) {
 
 	
-	
+	int i;
 
-
+	for (i = 0; i < dim; i++) {
+		initial[i] = gsl_rng_uniform_pos(rng)*(higher[i]-lower[i]) - lower[i];
+	}
 }
 
 
-void annealing_step(size_t dim matrix *x, double step_size, gsl_rng *rng) {
+void annealing_step(size_t dim, double *x, double step_size, gsl_rng *rng) {
 // calculate a random direction and add it to x
 	
 	int i;
 	double len;
-	matrix * dx = matrix_create(dim,1);
+	double dx[dim];
 
 	do {
 		len = 0.0;	
 		for (i = 0; i < dim; i++) {
-			dx->a[i][0] = gsl_rng_uniform_pos(rng);
-			len += (dx->a[i][0])*(dx->a[i][0]);
+			dx[i][0] = gsl_rng_uniform_pos(rng);
+			len += (dx[i][0])*(dx[i][0]);
 		}
 		len = sqrt(len);
 	} while (len > 1.0); // Get something not outside the unit sphere
 
 	for (i = 0; i < dim; i++) {
-		dx->a[i][0] /= len;
-		dx->a[i][0] *= step_size*gsl_rng_uniform(rng);
-		x->a[i][0] += dx->a[i][0];
+		dx[i][0] /= len;
+		dx[i][0] *= step_size*gsl_rng_uniform(rng);
+		x[i][0] += dx[i][0];
 	}
 
 }
 
 
-matrix * simulated_annealing(size_t dimension, double (*f)(const double x[dimension]), const matrix *lower_limits, const matrix *higher_limits, double max_step_distance, int n_runs, double temperature, double dT) {
+void simulated_annealing(size_t dimension, double *result, \
+			          double (*f)(const double x[dimension]), \ 
+					const double lower_limits[], \
+					const double higher_limits[], \
+					double max_step_distance, \
+					int n_runs, double temperature, double dT) {
 
 	
 	double T;
@@ -55,7 +63,7 @@ matrix * simulated_annealing(size_t dimension, double (*f)(const double x[dimens
 	T = temperature;
 	while (T > 0) {
 
-
+		
 
 	}
 
