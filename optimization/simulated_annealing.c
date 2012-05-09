@@ -64,6 +64,10 @@ void simulated_annealing(size_t dimension, double *result, \
 	while (T > 0) {
 
 		
+		   t = gamma/log(k+2), k = number of steps,
+			gamme problem constant
+
+			probabilities = min(1,exp(f(next)-f(now)/T));
 
 	}
 
