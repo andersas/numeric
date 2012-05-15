@@ -13,7 +13,7 @@ int main() {
 	double low = 0.5;
 	double high = 100.0;
 
-	y = simulated_annealing(1,&x,&f,&low,&high,0.7,1,0.00003,100);
+	y = simulated_annealing(1,&x,&f,&low,&high,5.0,1,0.0003,100);
 
 	printf("Min of x^2 = %f, x = %f\n", y, x);
 

@@ -27,7 +27,7 @@ void annealing_step(size_t dim, double *x, double step_size, gsl_rng *rng) {
 	do {
 		len = 0.0;	
 		for (i = 0; i < dim; i++) {
-			dx[i] = gsl_rng_uniform_pos(rng);
+			dx[i] = 2*(gsl_rng_uniform_pos(rng) - 0.5);
 			len += (dx[i])*(dx[i]);
 		}
 		len = sqrt(len);
@@ -39,12 +39,13 @@ void annealing_step(size_t dim, double *x, double step_size, gsl_rng *rng) {
 		x[i] += dx[i];
 	}
 
+printf("dx: %f\n", dx[0]);
 }
 
 __inline__ void accept_step(size_t dimension, double *bestf, double bestx[dimension], double *fnow, double *fnext, double x[dimension],double candidate[dimension]) {
 			memcpy(x,candidate,sizeof(double)*dimension);
 			*fnow = *fnext;
-			if (*bestf < *fnext) {
+			if (*bestf > *fnext) {
 				memcpy(bestx,x,sizeof(double)*dimension);
 				*bestf = *fnext;
 			}
@@ -97,13 +98,14 @@ double simulated_annealing(size_t dimension, double *result, \
 		if (fz <= fx) {
 			accept_step(dimension,&bestf,bestx,&fx,&fz,x,z);
 		} else {
-			T = gamma/log(step+2);
+			ignore_step(dimension,z,x);
+		/*	T = gamma/log(step+2);
 			probability = exp((fz-fx)/T);
 			if (gsl_rng_uniform_pos(rng) < probability) {
 				accept_step(dimension,&bestf,bestx,&fx,&fz,x,z);
 			} else {
 				ignore_step(dimension,z,x);
-			}
+			}*/
 		}
 		
 		step++;	
